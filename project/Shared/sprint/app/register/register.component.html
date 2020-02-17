@@ -1,0 +1,20 @@
+<p>register works!</p>
+
+
+
+
+<form [formGroup]="RegisterForm" (ngSubmit)="AddNewUser(RegisterForm.value)">
+ <label>UserName</label>   <input type="text" formControlName="uname" /><br/>
+ <label>password</label>     <input formControlName="password" type="password"/><br/>
+ <label>Male</label>    <input type="radio" name="gender" value="true" formControlName="gender">
+ <label>Female</label>   <input type="radio" name="gender" value="false" formControlName="gender"><br/>
+ <label>DOB</label>    <input formControlName="DOB" type="date"/><br/>
+ <label>email</label>       <input formControlName="email" type="text"/><br/>
+ <label>Desgination</label>       <input formControlName="Desgination" type="text"/><br/>
+    <button type="submit">submit</button> 
+ </form>
+<!-- 
+ <div *ngIf="loginForm.controls.productid.invalid && loginForm.controls.productid.touched">
+ Please check product id column
+</div> -->
+
