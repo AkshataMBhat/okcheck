@@ -1,7 +1,0 @@
-----------------------
-
-1.Home Page
-2. Buy Card
-3.Products
-4.Dashboard
--------------------
