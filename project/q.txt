@@ -1,0 +1,63 @@
+
+CREATE TABLE UserDetails(
+	[userid] [int] IDENTITY(1000,1) NOT NULL,
+	[name] [varchar](15) NULL,
+	[dob] [date] NOT NULL,
+	[email] [varchar](15) NOT NULL,
+	[phone] [varchar](15) NOT NULL,
+	[address] [varchar](50) NULL,
+	[username] [varchar](15) NULL,
+	[pwd] [varchar](10) NULL,
+	[active_status] [bit] NULL
+
+)
+create table Admin_d(
+emp_id varchar(5) primary key,
+emp_name varchar(10),
+contact varchar(15)
+)
+ 
+create table Emi_Card(
+cid varchar(5) primary key,
+userid varchar(5) foreign key references UserDetails(userid),
+card_no varchar(15) not null,
+card_type varchar(10),
+bank_name varchar(15),
+acc_no varchar(15) not null,
+ifsc varchar(10),
+pan varchar(10)not null,
+card_limit int,
+exp_date date
+
+)
+create table Product(
+pid varchar(5) primary key,
+pname varchar(10),
+category varchar(15),
+price int,
+stock int,
+pimage varchar(15)
+)
+create table Orders(
+oid varchar(5) primary key,
+pid varchar(5) foreign key references Product(pid), 
+qty int,
+t_amt int,
+no_of_inst int,
+cost_per_inst int
+)
+
+alter table Orders add o_date date
+
+select * from Orders 
+
+create table Transaction_d(
+tid varchar(5) primary key,
+cid varchar(5) foreign key references Emi_Card(cid),
+oid varchar(5) foreign key references Orders(oid),
+t_date date
+)
+
+
+
+drop table UserDetails
